@@ -1,2 +1,8 @@
 # TR-GRAFKOM-STADIUM
-i'm dedicated this project to my lovely asdos
+Project pembuatan Stadium Stade Aguste Delaune
+
+Nim     : 672018178
+Nama    : Paulus Andry Leksono
+Status  : Solo Player
+
+
