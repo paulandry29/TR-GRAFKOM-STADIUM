@@ -174,7 +174,7 @@ void atap (void)
 	glEnd();
 }
 
-void atap_pjk_kiri(float x, float y, float z, float sudut1_cos, float sudut1_sin, float sudut2, float sudut3)
+void atap_pjk_kiri(float x, float yt, float ya, float zt, float za, float sudut1_cos, float sudut1_sin, float sudut2, float sudut3)
 {
     glLineWidth(3);
     glBegin(GL_LINE_STRIP);
@@ -186,13 +186,13 @@ void atap_pjk_kiri(float x, float y, float z, float sudut1_cos, float sudut1_sin
         b += 0.001;
         glColor3f(r, g, b);
         glVertex3f(x + 4.5999999999999991 * cos(sudut1_cos * (3.14159265) * i / j), 16 + 2 * sin(sudut1_sin * (3.14159265) * i / j), 70 );
-        glVertex3f(x + 4.5999999999999991 * cos(sudut2 * (3.14159265) * i / j), y + 2 * sin(sudut2 * (3.14159265) * i / j), z );
-        glVertex3f(x + 4.5999999999999991 * cos(sudut3 * (3.14159265) * i / j), 25.5 + 2 * sin(sudut3 * (3.14159265) * i / j), 48 );
+        glVertex3f(x + 4.5999999999999991 * cos(sudut2 * (3.14159265) * i / j), yt + 2 * sin(sudut2 * (3.14159265) * i / j), zt );
+        glVertex3f(x + 4.5999999999999991 * cos(sudut3 * (3.14159265) * i / j), ya + 2 * sin(sudut3 * (3.14159265) * i / j), za );
 	}
 	glEnd();
 }
 
-void atap_pjk_kanan(float x, float y, float z, float sudut1, float sudut2, float sudut3_cos, float sudut3_sin)
+void atap_pjk_kanan(float x, float yt, float ya, float zt, float za, float sudut1, float sudut2, float sudut3_cos, float sudut3_sin)
 {
     glPushMatrix();
 	glRotatef(180,0,1,0);
@@ -206,13 +206,16 @@ void atap_pjk_kanan(float x, float y, float z, float sudut1, float sudut2, float
         g += 0.001;
         b += 0.001;
         glColor3f(r, g, b);
+        glVertex3f(x + 4.9999999999999991 * cos(sudut3_cos * (3.14159265) * i / j), ya + 2 * sin(sudut3_sin * (3.14159265) * i / j), za );
+        glVertex3f(x + 4.9999999999999991 * cos(sudut2 * (3.14159265) * i / j), yt + 2 * sin(sudut2 * (3.14159265) * i / j), zt );
         glVertex3f(x + 4.9999999999999991 * cos(sudut1 * (3.14159265) * i / j), 16 + 2 * sin(sudut1 * (3.14159265) * i / j), 48 );
-        glVertex3f(x + 4.9999999999999991 * cos(sudut2 * (3.14159265) * i / j), y + 2 * sin(sudut2 * (3.14159265) * i / j), z );
-        glVertex3f(x + 4.9999999999999991 * cos(sudut3_cos * (3.14159265) * i / j), 25.5 + 2 * sin(sudut3_sin * (3.14159265) * i / j), 70 );
+
 	}
 	glEnd();
 	glPopMatrix();
 }
+
+
 
 void under_ground (void)
 {
@@ -234,6 +237,40 @@ void ground (void)
     glVertex3f(-58, 0, -80);
     glVertex3f(-58, 0, 75);
     glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.8,0.8,0.8);
+    glVertex3f(51, 0.2, 66);
+    glVertex3f(51, 0.2, 50);
+    glVertex3f(-51, 0.2, 50);
+    glVertex3f(-51, 0.2, 66);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.8,0.8,0.8);
+    glVertex3f(51, 0.2, -66);
+    glVertex3f(51, 0.2, -50);
+    glVertex3f(-51, 0.2, -50);
+    glVertex3f(-51, 0.2, -66);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.8,0.8,0.8);
+    glVertex3f(35, 0.2, 66);
+    glVertex3f(35, 0.2, -66);
+    glVertex3f(51, 0.2, -66);
+    glVertex3f(51, 0.2, 66);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.8,0.8,0.8);
+    glVertex3f(-35, 0.2, 66);
+    glVertex3f(-35, 0.2, -66);
+    glVertex3f(-51, 0.2, -66);
+    glVertex3f(-51, 0.2, 66);
+    glEnd();
+
+
 }
 
 void lapangan (float kax, float kay, float kaz, float p, float l)
@@ -399,6 +436,8 @@ void lapangan (float kax, float kay, float kaz, float p, float l)
 
 }
 
+
+
 void tiangv (void)
 {
     glLineWidth(6);
@@ -454,6 +493,21 @@ void tiang_pt(float p)
     glEnd();
 }
 
+void tiang_pjk(void)
+{
+    glBegin(GL_LINE_STRIP);
+    int i, j=360;
+	for(i=1; i<=j; i++){
+        glColor3f(0.98,0.98,0.98);
+        glVertex3f(-50 + 0.5 * cos(2 * (3.14159265) * i / j), 0 , 65 + 0.5 * sin(2 * (3.14159265) * i / j));
+        glColor3f(1,1,1);
+        glVertex3f(-35 + 0.01 * cos(2 * (3.14159265) * i / j), 65 , 50 + 0.01 * sin(2 * (3.14159265) * i / j));
+	}
+	glEnd();
+}
+
+//50 X 65
+
 void tribun_ats(float tsx, float tfx, float tsz, float tfz)
 {
     glBegin(GL_QUADS);
@@ -477,68 +531,67 @@ void tribun_atss(float tsx, float tfx, float tsz, float tfz)
     glEnd();
 
 }
-//    tribun_ats(50, 42, -56.533, 54.533);
 
 void tribun_bwh(void)
 {
 
     //depan
     glBegin(GL_QUADS);
-    glColor3f(0.8, 0.8, 0.8);
-    glVertex3f(-33,0.2,50);
-    glVertex3f(33,0.2,50);
-    glVertex3f(43,0.2,60);
-    glVertex3f(-43,0.2,60);
+    glColor3f(0.95, 0.95, 0.95);
+    glVertex3f(-33,0.3,50);
+    glVertex3f(33,0.3,50);
+    glVertex3f(43,0.3,60);
+    glVertex3f(-43,0.3,60);
     glEnd();
 
     glBegin(GL_QUADS);
-    glVertex3f(43,0.2,60);
-    glVertex3f(-43,0.2,60);
+    glVertex3f(43,0.3,60);
+    glVertex3f(-43,0.3,60);
     glVertex3f(-43,7,60);
     glVertex3f(43,7,60);
     glEnd();
 
     //belakang
     glBegin(GL_QUADS);
-    glVertex3f(-33,0.2,-50);
-    glVertex3f(33,0.2,-50);
-    glVertex3f(43,0.2,-60);
-    glVertex3f(-43,0.2,-60);
+    glVertex3f(-33,0.3,-50);
+    glVertex3f(33,0.3,-50);
+    glVertex3f(43,0.3,-60);
+    glVertex3f(-43,0.3,-60);
     glEnd();
 
     glBegin(GL_QUADS);
-    glVertex3f(43,0.2,-60);
-    glVertex3f(-43,0.2,-60);
+    glVertex3f(43,0.3,-60);
+    glVertex3f(-43,0.3,-60);
     glVertex3f(-43,7,-60);
     glVertex3f(43,7,-60);
     glEnd();
 
     //kanan
     glBegin(GL_QUADS);
-    glVertex3f(35,0.2,48);
-    glVertex3f(35,0.2,-48);
-    glVertex3f(45,0.2,-58);
-    glVertex3f(45,0.2,58);
+    glVertex3f(35,0.3,48);
+    glVertex3f(35,0.3,-48);
+    glVertex3f(45,0.3,-58);
+    glVertex3f(45,0.3,58);
     glEnd();
 
     glBegin(GL_QUADS);
-    glVertex3f(45,0.2,-58);
-    glVertex3f(45,0.2,58);
+    glVertex3f(45,0.3,-58);
+    glVertex3f(45,0.3,58);
     glVertex3f(45,7,58);
     glVertex3f(45,7,-58);
     glEnd();
 
     //kiri
     glBegin(GL_QUADS);
-    glVertex3f(-35,0.2,48);
-    glVertex3f(-35,0.2,-48);
-    glVertex3f(-45,0.2,-58);
-    glVertex3f(-45,0.2,58);
+    glVertex3f(-35,0.3,48);
+    glVertex3f(-35,0.3,-48);
+    glVertex3f(-45,0.3,-58);
+    glVertex3f(-45,0.3,58);
     glEnd();
 
     glBegin(GL_QUADS);
-    glVertex3f(-45,0.2,-58);
-    glVertex3f(-45,0.2,58);
+    glVertex3f(-45,0.3,-58);
+    glVertex3f(-45,0.3,58);
     glVertex3f(-45,7,58);
     glVertex3f(-45,7,-58);
     glEnd();
@@ -568,6 +621,156 @@ void tribun_pntpb(float tsx, float tfx, float tsz, float tfz)
 
 
 
+void office (void)
+{
+    //layer_depan
+    glBegin(GL_QUADS);
+    glColor3f(0.9,0.9,0.9);
+    glVertex3f(65, -5, 30);
+    glVertex3f(65, 18, 30);
+    glVertex3f(65, 18, -30);
+    glVertex3f(65, -5, -30);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, -5, 30);
+    glVertex3f(64, 18, 30);
+    glVertex3f(64, 18, -30);
+    glVertex3f(64, -5, -30);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, -5, 30);
+    glVertex3f(64, 18, 30);
+    glVertex3f(65, 18, 30);
+    glVertex3f(65, -5, 30);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, -5, -30);
+    glVertex3f(64, 18, -30);
+    glVertex3f(65, 18, -30);
+    glVertex3f(65, -5, -30);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, 18, 30);
+    glVertex3f(65, 18, 30);
+    glVertex3f(65, 18, -30);
+    glVertex3f(64, 18, -30);
+    glEnd();
+
+    //jendela
+    glBegin(GL_QUADS);
+    glColor3f(0.2,0.2,0.2);
+    glVertex3f(65.1, 0, 25);
+    glVertex3f(65.1, 8, 25);
+    glVertex3f(65.1, 8, -20);
+    glVertex3f(65.1, 0, -20);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(65.1, 0, -27);
+    glVertex3f(65.1, 2.5, -27);
+    glVertex3f(65.1, 2.5, -25);
+    glVertex3f(65.1, 0, -25);
+    glEnd();
+
+    glBegin(GL_LINE_LOOP);
+    glLineWidth(0.2);
+    glColor3f(1,1,1);
+    glVertex3f(65.1, 0, -27);
+    glVertex3f(65.1, 2.5, -27);
+    glVertex3f(65.1, 2.5, -25);
+    glVertex3f(65.1, 0, -25);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.2,0.2,0.2);
+    glVertex3f(65.1, 10, -27);
+    glVertex3f(65.1, 12.5, -27);
+    glVertex3f(65.1, 12.5, -15);
+    glVertex3f(65.1, 10, -15);
+    glEnd();
+
+    glBegin(GL_LINE_LOOP);
+    glLineWidth(0.2);
+    glColor3f(1,1,1);
+    glVertex3f(65.1, 10, -27);
+    glVertex3f(65.1, 12.5, -27);
+    glVertex3f(65.1, 12.5, -15);
+    glVertex3f(65.1, 10, -15);
+    glEnd();
+
+    glBegin(GL_LINES);
+    glLineWidth(0.2);
+    glColor3f(1,1,1);
+    int z = 25;
+    for(int i=0; i<8; i++){
+        glVertex3f(65.2, 0, z);
+        glVertex3f(65.2, 8, z);
+        z -= 2.25;
+    }
+    glEnd();
+
+    glBegin(GL_LINES);
+    for(int i=0; i<8; i++){
+        glVertex3f(65.2, 0, z);
+        glVertex3f(65.2, 8, z);
+        z -= 3;
+    }
+    glEnd();
+
+    glBegin(GL_LINES);
+    glLineWidth(0.2);
+    glColor3f(1,1,1);
+    int y = 0;
+    for(int i=0; i<=4; i++){
+        glVertex3f(65.2, y, 25);
+        glVertex3f(65.2, y, -20);
+        y += 2;
+    }
+    glEnd();
+
+    //bangunan
+    glBegin(GL_QUADS);
+    glColor3f(0.9, 0.9, 0.9);
+    glVertex3f(64, 15, 23);
+    glVertex3f(64, -5, 23);
+    glVertex3f(50, -5, 23);
+    glVertex3f(50, 15, 23);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, 15, -25);
+    glVertex3f(64, -5, -25);
+    glVertex3f(50, -5, -25);
+    glVertex3f(50, 15, -25);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(64, 15, 23);
+    glVertex3f(64, 15, -25);
+    glVertex3f(50, 15, -25);
+    glVertex3f(50, 15, 23);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(50, -5, 23);
+    glVertex3f(50, 15, 23);
+    glVertex3f(45, 12, 23);
+    glVertex3f(45, -5, 23);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(50, -5, -25);
+    glVertex3f(50, 15, -25);
+    glVertex3f(45, 12, -25);
+    glVertex3f(45, -5, -25);
+    glEnd();
+
+}
+
 
 void tampil(void)
 {
@@ -590,9 +793,22 @@ void tampil(void)
     lapangan(-30, 0.1, 45, 60, 90);
     atap();
 
+    office();
+
     //tribun_ats();
     tribun_bwh();
 
+    tiang_pjk();
+    glPushMatrix();
+    glRotatef(180, 0, 1, 0);
+    tiang_pjk();
+    glRotatef(-90, 0, 1, 0);
+    glTranslatef(-15, 0, -15);
+    tiang_pjk();
+    glRotatef(180, 0, 1, 0);
+    glTranslatef(-30, 0, -30);
+    tiang_pjk();
+    glPopMatrix();
 
 
     //depan
@@ -627,7 +843,9 @@ void tampil(void)
     glPopMatrix();
     glPushMatrix();
     glTranslatef(-37,0,0);
-    atap_pjk_kiri(0, 20, 55, 1, 1, 0.75, 0.2);
+    atap_pjk_kiri(0, 20, 25.5, 55, 48, 1, 1, 1, 0.2);
+    glTranslatef(-8.5,0,0);
+    atap_pjk_kiri(0, 17, 21, 60, 55, 0.5, 0.1, 0.5, 0.2);
     glPopMatrix();
     glPushMatrix();
     tz = -41.667;
@@ -635,8 +853,10 @@ void tampil(void)
     for(int i = 1; i<=9; i++){
         int tzz = 9.533333333333333;
         glTranslatef(tzz, 0, 0);
-        if(i>8)atap_pjk_kanan(0, 20, 66, 1, 1, 0.45, 1);
+        if(i>8)atap_pjk_kanan(0, 20, 25.5, 66, 70, 1, 1, 0.45, 1);
     }
+    glTranslatef(9.533333333333333, 0, 0);
+    atap_pjk_kanan(0, 17, 21, 59, 65, 0.5, 0.5, 0.1, 0.1);
     glPopMatrix();
 
 
@@ -677,7 +897,9 @@ void tampil(void)
     glPushMatrix();
     glRotatef(180,0,1,0);
     glTranslatef(-37,0,0);
-    atap_pjk_kiri(0, 20, 53.5, 1, 1, 0.75, 0.3);
+    atap_pjk_kiri(0, 20, 25.5, 53.5, 48, 1, 1, 0.75, 0.3);
+    glTranslatef(-8.5,0,0);
+    atap_pjk_kiri(0, 17, 21, 60, 55, 0.5, 0.1, 0.5, 0.2);
     glPopMatrix();
 
     glPushMatrix();
@@ -687,8 +909,10 @@ void tampil(void)
     for(int i = 1; i<=9; i++){
         int tzz = 9.533333333333333;
         glTranslatef(tzz, 0, 0);
-        if(i>8)atap_pjk_kanan(0, 20, 65.5, 1, 1, 0.45, 1);
+        if(i>8)atap_pjk_kanan(0, 20, 25.5, 65.5, 70, 1, 1, 0.45, 1);
     }
+    glTranslatef(9.533333333333333, 0, 0);
+    atap_pjk_kanan(0, 17, 21, 59, 65, 0.5, 0.5, 0.1, 0.1);
     glPopMatrix();
 
 
@@ -704,7 +928,7 @@ void tampil(void)
     for(int i = 1; i<13; i++){
         int tzz = 9.9999999999999991;
         glTranslatef(tzz, 0, 0);
-        tiangv();
+        if(i<4 || i>8) tiangv();
         if(i<12)tiangat();
         else tiangatp(56);
         tiang_pt(57);
@@ -729,7 +953,9 @@ void tampil(void)
     glRotatef(90, 0, 1, 0);
     tz = -49.533;
     glTranslatef(tz,0,-15);
-    atap_pjk_kiri(0, 20, 55, 1, 1, 0.75, 0.4);
+    atap_pjk_kiri(0, 20, 25.5, 55, 48, 1, 1, 0.75, 0.4);
+    glTranslatef(-8.5,0,0);
+    atap_pjk_kiri(0, 17, 21, 60, 55, 0.7, 0.1, 0.5, 0.7);
     glPopMatrix();
 
     glPushMatrix();
@@ -739,8 +965,10 @@ void tampil(void)
     for(int i = 1; i<=12; i++){
         int tzz = 9.533333333333333;
         glTranslatef(tzz, 0, 0);
-        if(i>11)atap_pjk_kanan(0, 20, 61, 1, 1, 0.3, 1);
+        if(i>11)atap_pjk_kanan(0, 20, 25.5, 61, 70, 1, 1, 0.3, 1);
     }
+    glTranslatef(9.533333333333333, 0, 0);
+    atap_pjk_kanan(0, 17, 21, 57, 62, 0.5, 0.5, 0.1, 0.1);
     glPopMatrix();
 
 
@@ -781,7 +1009,9 @@ void tampil(void)
     glRotatef(-90, 0, 1, 0);
     tz = -49.533;
     glTranslatef(tz,0,-15);
-    atap_pjk_kiri(0, 20, 55, 1, 1, 0.75, 0.4);
+    atap_pjk_kiri(0, 20, 25.5, 55, 48, 1, 1, 0.75, 0.4);
+    glTranslatef(-8.5,0,0);
+    atap_pjk_kiri(0, 17, 21, 60, 55, 0.7, 0.1, 0.5, 0.7);
     glPopMatrix();
 
     glPushMatrix();
@@ -791,8 +1021,10 @@ void tampil(void)
     for(int i = 1; i<=12; i++){
         int tzz = 9.533333333333333;
         glTranslatef(tzz, 0, 0);
-        if(i>11)atap_pjk_kanan(0, 20, 62, 1, 1, 0.35, 1);
+        if(i>11)atap_pjk_kanan(0, 20, 25.5, 62, 70, 1, 1, 0.35, 1);
     }
+    glTranslatef(9.533333333333333, 0, 0);
+    atap_pjk_kanan(0, 17, 21, 57, 61, 0.5, 0.5, 0.1, 0.1);
     glPopMatrix();
 
 
