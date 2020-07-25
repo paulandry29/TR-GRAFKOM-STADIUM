@@ -436,6 +436,41 @@ void lapangan (float kax, float kay, float kaz, float p, float l)
 
 }
 
+void gress(void)
+{
+    //depan
+    glBegin(GL_QUADS);
+    glColor3f(0.3, 0.9, 0.3);
+    glVertex3f(-58, 0, 75);
+    glVertex3f(58, 0, 75);
+    glVertex3f(62, -5, 79);
+    glVertex3f(-58, -5, 79);
+    glEnd();
+
+    //belakang
+    glBegin(GL_QUADS);
+    glVertex3f(-58, 0, -80);
+    glVertex3f(58, 0, -80);
+    glVertex3f(62, -5, -84);
+    glVertex3f(-58, -5, -84);
+    glEnd();
+
+    //kanan
+    glBegin(GL_QUADS);
+    glVertex3f(62, -5, -84);
+    glVertex3f(58, 0, -80);
+    glVertex3f(58, 0, 75);
+    glVertex3f(62, -5, 79);
+
+    //kiri
+    glBegin(GL_QUADS);
+    glColor3f(0.75, 0.75, 0.75);
+    glVertex3f(-58, -5, -84);
+    glVertex3f(-58, 0, -80);
+    glVertex3f(-58, 0, 75);
+    glVertex3f(-58, -5, 79);
+
+}
 
 
 void tiangv (void)
@@ -504,6 +539,16 @@ void tiang_pjk(void)
         glVertex3f(-35 + 0.01 * cos(2 * (3.14159265) * i / j), 65 , 50 + 0.01 * sin(2 * (3.14159265) * i / j));
 	}
 	glEnd();
+}
+
+void tiang_bnd(void)
+{
+    glBegin(GL_LINES);
+    glLineWidth(1);
+    glColor3f(1,1,1);
+    glVertex3f(63, 15, -15);
+    glVertex3f(63, 25, -15);
+    glEnd();
 }
 
 //50 X 65
@@ -769,6 +814,16 @@ void office (void)
     glVertex3f(45, -5, -25);
     glEnd();
 
+    //tiang bendera
+    glPushMatrix();
+    for(int i = 1; i<=4; i++){
+        glTranslatef(0, 0, -2);
+        tiang_bnd();
+    }
+
+    //ac
+
+
 }
 
 
@@ -794,6 +849,7 @@ void tampil(void)
     atap();
 
     office();
+    gress();
 
     //tribun_ats();
     tribun_bwh();
