@@ -3,12 +3,11 @@
 /**<
         NIM : 672018178
         NAMA : PAULUS ANDRY LEKSONO
+        Stade Aguste Delaune Stadium
                                         */
 
 
 #include <windows.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
 #include <GL/glut.h>
 #include <math.h>
 
@@ -231,7 +230,7 @@ void under_ground (void)
 void ground (void)
 {
     glBegin(GL_QUADS);
-    glColor3f(0.8,0.8,0.8);
+    glColor3f(0.7,0.7,0.7);
     glVertex3f(58, 0, 75);
     glVertex3f(58, 0, -80);
     glVertex3f(-58, 0, -80);
@@ -239,7 +238,6 @@ void ground (void)
     glEnd();
 
     glBegin(GL_QUADS);
-    glColor3f(0.8,0.8,0.8);
     glVertex3f(51, 0.2, 66);
     glVertex3f(51, 0.2, 50);
     glVertex3f(-51, 0.2, 50);
@@ -247,7 +245,6 @@ void ground (void)
     glEnd();
 
     glBegin(GL_QUADS);
-    glColor3f(0.8,0.8,0.8);
     glVertex3f(51, 0.2, -66);
     glVertex3f(51, 0.2, -50);
     glVertex3f(-51, 0.2, -50);
@@ -255,7 +252,6 @@ void ground (void)
     glEnd();
 
     glBegin(GL_QUADS);
-    glColor3f(0.8,0.8,0.8);
     glVertex3f(35, 0.2, 66);
     glVertex3f(35, 0.2, -66);
     glVertex3f(51, 0.2, -66);
@@ -263,7 +259,6 @@ void ground (void)
     glEnd();
 
     glBegin(GL_QUADS);
-    glColor3f(0.8,0.8,0.8);
     glVertex3f(-35, 0.2, 66);
     glVertex3f(-35, 0.2, -66);
     glVertex3f(-51, 0.2, -66);
@@ -551,12 +546,12 @@ void tiang_bnd(void)
     glEnd();
 }
 
-//50 X 65
+
 
 void tribun_ats(float tsx, float tfx, float tsz, float tfz)
 {
     glBegin(GL_QUADS);
-    glColor3f(1,0,0);
+    glColor3f(0.9,0.9,0.9);
     glVertex3f(tsx, 16.8, tsz);
     glVertex3f(tsx, 10.8, tfz);
     glVertex3f(tfx, 10.8, tfz);
@@ -568,7 +563,7 @@ void tribun_ats(float tsx, float tfx, float tsz, float tfz)
 void tribun_atss(float tsx, float tfx, float tsz, float tfz)
 {
     glBegin(GL_QUADS);
-    glColor3f(1,0,0);
+    glColor3f(0.9,0.9,0.9);
     glVertex3f(tsx, 16.8, tsz);
     glVertex3f(tsx, 16.8, tfz);
     glVertex3f(tfx, 10.8, tfz);
@@ -596,8 +591,17 @@ void tribun_bwh(void)
     glVertex3f(43,7,60);
     glEnd();
 
+    glBegin(GL_QUADS);
+    glColor3f(0.7,0.7,1);
+    glVertex3f(-33,0.3,50);
+    glVertex3f(33,0.3,50);
+    glVertex3f(33,3,50);
+    glVertex3f(-33,3,50);
+    glEnd();
+
     //belakang
     glBegin(GL_QUADS);
+    glColor3f(0.95, 0.95, 0.95);
     glVertex3f(-33,0.3,-50);
     glVertex3f(33,0.3,-50);
     glVertex3f(43,0.3,-60);
@@ -611,8 +615,17 @@ void tribun_bwh(void)
     glVertex3f(43,7,-60);
     glEnd();
 
+    glBegin(GL_QUADS);
+    glColor3f(0.7,0.7,1);
+    glVertex3f(-33,0.3,-50);
+    glVertex3f(33,0.3,-50);
+    glVertex3f(33,3,-50);
+    glVertex3f(-33,3,-50);
+    glEnd();
+
     //kanan
     glBegin(GL_QUADS);
+    glColor3f(0.95, 0.95, 0.95);
     glVertex3f(35,0.3,48);
     glVertex3f(35,0.3,-48);
     glVertex3f(45,0.3,-58);
@@ -626,8 +639,17 @@ void tribun_bwh(void)
     glVertex3f(45,7,-58);
     glEnd();
 
+    glBegin(GL_QUADS);
+    glColor3f(0.7,0.7,1);
+    glVertex3f(35,0.3,-48);
+    glVertex3f(35,0.3,48);
+    glVertex3f(35,3,48);
+    glVertex3f(35,3,-48);
+    glEnd();
+
     //kiri
     glBegin(GL_QUADS);
+    glColor3f(0.95, 0.95, 0.95);
     glVertex3f(-35,0.3,48);
     glVertex3f(-35,0.3,-48);
     glVertex3f(-45,0.3,-58);
@@ -639,6 +661,14 @@ void tribun_bwh(void)
     glVertex3f(-45,0.3,58);
     glVertex3f(-45,7,58);
     glVertex3f(-45,7,-58);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.7,0.7,1);
+    glVertex3f(-35,0.3,-48);
+    glVertex3f(-35,0.3,48);
+    glVertex3f(-35,3,48);
+    glVertex3f(-35,3,-48);
     glEnd();
 }
 
@@ -656,7 +686,7 @@ void tribun_pntp(float tsx, float tfx, float tsz, float tfz)
 void tribun_pntpb(float tsx, float tfx, float tsz, float tfz)
 {
     glBegin(GL_QUADS);
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.7,0.7,1);
     glVertex3f(tsx, 8, tsz);
     glVertex3f(tfx, 8, tfz);
     glVertex3f(tfx, 12, tfz);
@@ -664,13 +694,138 @@ void tribun_pntpb(float tsx, float tfx, float tsz, float tfz)
     glEnd();
 }
 
+void kursi(float x, float y, float z, float p)
+{
+    glBegin(GL_QUADS);
+    glColor3f(0.8, 0.8, 0.8);
+    glVertex3f(p/2, 18, 63);
+    glVertex3f(p/2, 18, 62);
+    glVertex3f(-(p/2), 18, 62);
+    glVertex3f(-(p/2), 18, 63);
+    glEnd();
 
+    glBegin(GL_QUADS);
+    glColor3f(0.85, 0.85, 0.85);
+    glVertex3f(p/2, 18, 62);
+    glVertex3f(p/2, 17, 62);
+    glVertex3f(-(p/2), 17, 62);
+    glVertex3f(-(p/2), 18, 62);
+    glEnd();
+}
+
+void kursi_b(float p)
+{
+    glBegin(GL_QUADS);
+    glColor3f(0.8, 0.8, 0.8);
+    glVertex3f(p/2, 7, 60);
+    glVertex3f(p/2, 7, 59);
+    glVertex3f(-(p/2), 7, 59);
+    glVertex3f(-(p/2), 7, 60);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glColor3f(0.85, 0.85, 0.85);
+    glVertex3f(p/2, 7, 59);
+    glVertex3f(p/2, 6, 59);
+    glVertex3f(-(p/2), 7, 59);
+    glVertex3f(-(p/2), 6, 59);
+    glEnd();
+}
+
+void kursi_ats(void)
+{
+    glPushMatrix();
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi(0,0,0,80);
+    }
+    glPopMatrix();
+
+
+    glPushMatrix();
+    glRotatef(180, 0, 1, 0);
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi(0,0,0,80);
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glRotatef(90, 0, 1, 0);
+    glTranslatef(0, -2, -13);
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi(0,0,0,105);
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glRotatef(-90, 0, 1, 0);
+    glTranslatef(0, -2, -13);
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi(0,0,0,105);
+    }
+    glPopMatrix();
+}
+
+void kursi_bwh(void)
+{
+    glPushMatrix();
+    float p = 83;
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi_b(p);
+        p-=1;
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glRotatef(180, 0, 1, 0);
+    p = 82;
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi_b(p);
+        p-=1;
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glRotatef(90, 0, 1, 0);
+    glTranslatef(0, 0, -15);
+    p = 110;
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi_b(p);
+        p-=1;
+    }
+    glPopMatrix();
+
+    glPushMatrix();
+    glRotatef(-90, 0, 1, 0);
+    glTranslatef(0, 0, -15);
+    p = 110;
+    for(int i =1; i<=15; i++)
+    {
+        glTranslatef(0, -0.3, -0.5);
+        kursi_b(p);
+        p-=1;
+    }
+    glPopMatrix();
+}
 
 void office (void)
 {
     //layer_depan
     glBegin(GL_QUADS);
-    glColor3f(0.9,0.9,0.9);
+    glColor3f(0.97,0.97,0.97);
     glVertex3f(65, -5, 30);
     glVertex3f(65, 18, 30);
     glVertex3f(65, 18, -30);
@@ -820,8 +975,40 @@ void office (void)
         glTranslatef(0, 0, -2);
         tiang_bnd();
     }
+    glPopMatrix();
 
     //ac
+
+
+    //office atas
+    glBegin(GL_QUADS);
+    glColor3f(0.6, 0.6, 0.7);
+    glVertex3f(40, 18, 10);
+    glVertex3f(40, 18, -10);
+    glVertex3f(40, 8, -10);
+    glVertex3f(40, 8, 10);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(40, 18, 10);
+    glVertex3f(40, 18, -10);
+    glVertex3f(50, 18, -10);
+    glVertex3f(50, 18, 10);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(40, 18, 10);
+    glVertex3f(40, 8, 10);
+    glVertex3f(50, 8, 10);
+    glVertex3f(50, 18, 10);
+    glEnd();
+
+    glBegin(GL_QUADS);
+    glVertex3f(40, 18, -10);
+    glVertex3f(40, 8, -10);
+    glVertex3f(50, 8, -10);
+    glVertex3f(50, 18, -10);
+    glEnd();
 
 
 }
@@ -853,6 +1040,13 @@ void tampil(void)
 
     //tribun_ats();
     tribun_bwh();
+    kursi_ats();
+    kursi_bwh();
+
+
+
+
+
 
     tiang_pjk();
     glPushMatrix();
